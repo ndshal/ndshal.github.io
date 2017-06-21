@@ -3895,3 +3895,7 @@
 	font-size: 4em;
 	padding: 0 0.2em;
 }
+
+#one p {
+	text-align: left;
+}
