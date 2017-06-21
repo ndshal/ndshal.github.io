@@ -3899,3 +3899,7 @@
 #one p {
 	text-align: left;
 }
+
+.g-recaptcha {
+	margin-bottom: 2em;
+}
