@@ -189,7 +189,7 @@
 					<section id="footer">
 						<div class="inner">
 							<h2 class="major">Get in touch</h2>
-							<form method="" action="">
+							<form id='contact-form'>
 								<div class="field">
 									<label for="name">Name</label>
 									<input type="text" name="name" id="name" />
@@ -203,7 +203,7 @@
 									<textarea name="message" id="message" rows="4"></textarea>
 								</div>
 								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
+									<li><input id='send' type="submit" value="Send Message" /></li>
 								</ul>
 							</form>
 							<ul class="contact">
@@ -224,6 +224,25 @@
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/util.js"></script>
+			<script type="text/javascript" 				src="https://cdn.emailjs.com/dist/email.min.js"></script>
+			<script type="text/javascript">
+   			(function(){
+      	emailjs.init("user_c0MLbY1JN5NItCEcK9QiK");
+   			})();
+
+				$('#contact-form').submit(function(event){
+					event.preventDefault();
+					var service_id = "gmail";
+					var template_id = "portfolio_site";
+
+					emailjs.sendForm(service_id,template_id,"contact-form");
+					$('#name').val('')
+					$('#email').val('')
+					$('#message').val('')
+					$('#send').val('Thanks!')
+					setTimeout(function () { $('#send').val('Send Message') }, 2000)
+				});
+			</script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
 
